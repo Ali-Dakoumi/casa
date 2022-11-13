@@ -11,6 +11,8 @@ export default async function handler(req, res) {
     await res.revalidate(req.query.path);
     return res.json({
       revalidated: true,
+      token: req.query.secret,
+      processVar: process.env.NEXT_REVALIDATE_TOKEN,
     });
   } catch (err) {
     return res.status(500).send("Error revalidating");
