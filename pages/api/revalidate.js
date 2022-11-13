@@ -13,6 +13,6 @@ export default async function handler(req, res) {
       revalidated: true,
     });
   } catch (err) {
-    return res.status(500).send("Error revalidating");
+    return res.status(500).send("Error revalidating !!!");
   }
 }
