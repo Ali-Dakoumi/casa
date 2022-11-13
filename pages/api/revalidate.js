@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     return res.status(401).json({
       message: "Invalid token",
       token: req.query.secret,
-      processVar: process.env.NEXT_REVALIDATE_TOKEN,
+      processVar: process.env.PRISMIC_WEBHOOK_SECRET,
     });
   }
 
