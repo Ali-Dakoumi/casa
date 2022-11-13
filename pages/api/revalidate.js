@@ -1,10 +1,6 @@
 export default async function handler(req, res) {
-  if (req.body.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
-    return res.status(401).json({
-      message: "Invalid token",
-      token: req.query.secret,
-      processVar: process.env.PRISMIC_WEBHOOK_SECRET,
-    });
+  if (req.query.secret !== process.env.NEXT_REVALIDATE_TOKEN) {
+    return res.status(401).json({ message: "Invalid token" });
   }
 
   try {
@@ -13,6 +9,6 @@ export default async function handler(req, res) {
       revalidated: true,
     });
   } catch (err) {
-    return res.status(500).send("Error revalidating !!!");
+    return res.status(500).send("Error revalidating");
   }
 }
