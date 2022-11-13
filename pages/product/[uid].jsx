@@ -16,7 +16,6 @@ export default function Product({ post }) {
       ],
     },
   } = post;
-  console.log("🚀 ~ file: [uid].js ~ line 6 ~ Product ~ post", text);
 
   return (
     <div>
@@ -39,7 +38,6 @@ export async function getStaticPaths() {
   });
   const { uid } = posts.data.allPosts.edges[0].node._meta;
   const paths = [{ params: { uid: uid, lang: "ar-ae" } }];
-  console.log(paths, "pathhhhhhh");
 
   return {
     paths: paths,
@@ -49,12 +47,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const uid = context.params.uid;
-  console.log("🚀 ~ file: [uid].js ~ line 28 ~ getStaticProps ~ uid", uid);
   const { data } = await client.query({
     query: POST_BY_UID,
     variables: { uid: uid, lang: "ar-ae" },
   });
-  console.log("🚀 ~ file: [uid].js ~ line 31 ~ getStaticProps ~ data", data);
   return {
     props: {
       post: data,
