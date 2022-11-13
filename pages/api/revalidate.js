@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   // }
 
   try {
-    // await res.revalidate(req.query.path);
+    await res.revalidate(req.query.path);
     const client = getApolloClient();
     const { data } = await client.query({
       query: ALL_POSTS,
