@@ -1,0 +1,24 @@
+{
+  "_cts": {
+    "post": {},
+    "author": {}
+  },
+  "slices": {
+    "Content": {
+      "default": {
+        "primary": {},
+        "items": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      },
+      "noImage": {
+        "items": {}
+      }
+    }
+  }
+}
