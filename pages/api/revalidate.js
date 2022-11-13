@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   // const { data, setData } = useContext(DataContext);
   if (req.query.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
-    return res.status(401).json({ message: "Invalid token" });
+    return res.status(404).json({ message: "Invalid token" });
   }
 
   try {
