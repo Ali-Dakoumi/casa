@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  if (req.query.secret !== process.env.NEXT_REVALIDATE_TOKEN) {
+  if (req.query.secret !== process.env.PRISMIC_WEBHOOK_SECRET) {
     return res.status(401).json({ message: "Invalid token" });
   }
 
