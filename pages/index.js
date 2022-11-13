@@ -4,7 +4,16 @@ import { ALL_POSTS } from "../lib/query";
 import Link from "next/link";
 import getApolloClient from "../lib/client";
 import Image from "next/image";
+import { useContext, useEffect } from "react";
+import { DataContext } from "../lib/context";
 export default function Home({ posts }) {
+  const { data, setData } = useContext(DataContext);
+  // console.log(setData({ user: "ali" }));
+  useEffect(() => {
+    setData("hello");
+    console.log(data);
+  }, []);
+
   posts.map((post) => console.log(post));
   return (
     <div className={styles.container}>
